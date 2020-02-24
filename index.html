@@ -10,6 +10,13 @@
     <title>Pizza Constructor</title>
 </head>
 <body>
+<div id="app">
+    <div class="fillingsAlert" v-if = 'fillingsAlert'>
+    <div class="fillingsAlert__title"><h2>ВНИМАНИЕ!</h2></div>
+    <div class="fillingsAlert__text"><p>Пожалуйста, выберите не больше четырёх ингредиентов!</p></div>
+    <button class="fillingsAlert__btn" @click='fillingsAlert=!fillingsAlert, fillingsAlert_filter=!fillingsAlert_filter'>Хорошо</button>
+</div>
+<div class="fillingAlert__filter" v-if = 'fillingsAlert_filter'></div>
     <header class="header">
         <div class="header__title">
             <h1 class="header__titleText"> Pizza Constructor </h1>
@@ -17,7 +24,7 @@
         </div>
     </header>
 
-<main id="app">
+<main>
     <section class="constructor">
         <div class="pizzaPicture">
             <img src="img/Testo.png" alt="" srcset="" class="testo fillingsImg" >
@@ -38,6 +45,7 @@
             <img src="img/telyatina.png" alt="" srcset="" class="telyatina fillingsImg" v-if='isVisible_tel'>
 
         </div>
+        
         <div class="pizzaFillings">
             <div class="pizzaFilling__fillings">
             <div class="fillingsMeat">
@@ -73,8 +81,12 @@
         </div>
             <div class="fillingsPrice__result"> Общая сумма {{ priceResult }} рублей</div>
         </div>
+
     </section>
 </main>
+</div>
+
+
 
 
 

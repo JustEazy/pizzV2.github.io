@@ -104,9 +104,41 @@ button::-moz-focus-inner {
     background: none;
     border: none;
     font-size: 36pt;
-line-height: 10px;
+    line-height: 10px;
 }
 .fillingsPrice__result{
     font-family: 'Vollkorn';
     font-size: 36pt;
+}
+.fillingsAlert{
+    position: fixed;
+    top: 32%;
+    left: 32%;
+    z-index: 9999;
+    color: #6552c9;
+    text-align: center;
+    border: 1px solid white;
+    background-color: #ffe27c;
+    padding: 20px;
+}
+.fillingsAlert__text p{
+    font-size: 20pt;
+    
+}
+.fillingAlert__filter{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;right: 0;left: 0;bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.fillingsAlert__btn{
+    font-size: 20pt;
+    color: #7cb7ff;
+    background: none;
+    border: none;
+}
+.fillingsAlert__btn:hover{
+    background-color: rgba(0, 0, 0, 0.3);
 }
