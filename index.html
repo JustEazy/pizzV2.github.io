@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Pacifico|Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <title>Pizza Constructor</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__title">
+            <h1 class="header__titleText"> Pizza Constructor </h1>
+             <img src="img/logo.png" width="150px" alt="" srcset="" class="header__logo">
+        </div>
+    </header>
+
+<main id="app">
+    <section class="constructor">
+        <div class="pizzaPicture">
+            <img src="img/Testo.png" alt="" srcset="" class="testo fillingsImg" >
+            <img src="img/riba.png" alt="" srcset="" class="riba fillingsImg" v-if='isVisible_riba'>
+            <img src="img/sausage.png" alt="" srcset="" class="sausage fillingsImg" v-if='isVisible_sausage'>
+            <img src="img/shinka.png" alt="" srcset="" class="shinka fillingsImg" v-if='isVisible_shinka'>
+            <img src="img/cheese.png" alt="" srcset="" class="cheese fillingsImg" v-if='isVisible_cheese'>
+            <img src="img/ogurez.png" alt="" srcset="" class="ogurez fillingsImg" v-if='isVisible_ogurez'>
+            <img src="img/olivki.png" alt="" srcset="" class="olivki fillingsImg" v-if='isVisible_olivki'>
+            <img src="img/Tomato.png" alt="" srcset="" class="tomato fillingsImg" v-if='isVisible_tomato'>
+            <img src="img/midii.png" alt="" srcset="" class="midii fillingsImg" v-if='isVisible_midii'>
+            <img src="img/krevetki.png" alt="" srcset="" class="krevetki fillingsImg" v-if='isVisible_krevetki'>
+            <img src="img/kukuruza.png" alt="" srcset="" class="kukuruza fillingsImg" v-if='isVisible_kukuruza'>
+            <img src="img/brokoli.png" alt="" srcset="" class="brokoli fillingsImg" v-if='isVisible_brokoli'>
+            <img src="img/bekon.png" alt="" srcset="" class="bekon fillingsImg" v-if='isVisible_bekon'>
+            <img src="img/ananas.png" alt="" srcset="" class="ananas fillingsImg" v-if='isVisible_ananas'>
+            <img src="img/perez.png" alt="" srcset="" class="perez fillingsImg" v-if='isVisible_perez'>
+            <img src="img/telyatina.png" alt="" srcset="" class="telyatina fillingsImg" v-if='isVisible_tel'>
+
+        </div>
+        <div class="pizzaFillings">
+            <div class="pizzaFilling__fillings">
+            <div class="fillingsMeat">
+                <h3 class="fillingsTitle">Мясное</h3>
+                <ul class="meatList">
+                <li><span class="fillingsPrice">{{ priceSausage }}р. </span>Колбаса<span class="numbers">{{  fillingCounter_sausage }}</span><button class="fillingsButtons" @click='isVisible_sausage=true' v-on:click='riseFillingCounter_sausage'>+</button><button class="fillingsButtons" @click='isVisible_sausage=false' v-on:click = "reduceFillingCounter_sausage">-</button></li>
+                <li><span class="fillingsPrice">{{ priceTelaytina}}р. </span>Телятина<span class="numbers">{{  fillingCounter_telaytina }}</span><button class="fillingsButtons" @click='isVisible_tel=true' v-on:click='riseFillingCounter_telaytina'>+</button><button class="fillingsButtons" @click='isVisible_tel=false' v-on:click = "reduceFillingCounter_telaytina">-</button></li>
+                <li><span class="fillingsPrice">{{ priceBekon}}р. </span>Бекон<span class="numbers">{{  fillingCounter_bekon }}</span><button class="fillingsButtons"  @click='isVisible_bekon=true' v-on:click="riseFillingCounter_bekon">+</button><button class="fillingsButtons" @click='isVisible_bekon=false' v-on:click = "reduceFillingCounter_bekon">-</button></li>
+                <li><span class="fillingsPrice">{{ priceShinka }}р. </span>Шинка<span class="numbers">{{  fillingCounter_shinka }}</span><button class="fillingsButtons"  @click='isVisible_shinka=true' v-on:click='riseFillingCounter_shinka'>+</button><button class="fillingsButtons" @click='isVisible_shinka=false' v-on:click = "reduceFillingCounter_shinka">-</button></li>
+                <li><span class="fillingsPrice">{{ priceMidii }}р. </span>Мидии<span class="numbers">{{  fillingCounter_midii }}</span><button class="fillingsButtons"  @click='isVisible_midii=true' v-on:click='riseFillingCounter_midii'>+</button><button class="fillingsButtons" @click='isVisible_midii=false' v-on:click = "reduceFillingCounter_midii">-</button></li>
+            </ul>
+        </div>
+            <div class="fillingsVeg">
+                <h3 class="fillingsTitle">Овощи</h3>
+                <ul class="vegList">
+                    <li><span class="fillingsPrice">{{ priceTomato }}р. </span>Помидоры<span class="numbers">{{  fillingCounter_tomato }}</span><button class="fillingsButtons" @click='isVisible_tomato=true' v-on:click='riseFillingCounter_tomato'>+</button><button class="fillingsButtons" @click='isVisible_tomato=false' v-on:click = "reduceFillingCounter_tomato">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceOgurez }}р. </span>Огурцы<span class="numbers">{{  fillingCounter_ogurez }}</span><button class="fillingsButtons" @click='isVisible_ogurez=true' v-on:click='riseFillingCounter_ogurez'>+</button><button class="fillingsButtons" @click='isVisible_ogurez=false' v-on:click = "reduceFillingCounter_ogurez">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceBrokoli }}р. </span>Брокколи<span class="numbers">{{  fillingCounter_brokoli }}</span><button class="fillingsButtons" @click='isVisible_brokoli=true' v-on:click='riseFillingCounter_brokoli'>+</button><button class="fillingsButtons" @click='isVisible_brokoli=false' v-on:click = "reduceFillingCounter_brokoli">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceOlivki }}р. </span>Оливки<span class="numbers">{{  fillingCounter_olivki }}</span><button class="fillingsButtons" @click='isVisible_olivki=true' v-on:click='riseFillingCounter_olivki'>+</button><button class="fillingsButtons" @click='isVisible_olivki=false' v-on:click = "reduceFillingCounter_olivki">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceKukuruza }}р. </span>Кукуруза<span class="numbers">{{  fillingCounter_kukuruza }}</span><button class="fillingsButtons" @click='isVisible_kukuruza=true' v-on:click='riseFillingCounter_kukuruza'>+</button><button class="fillingsButtons" @click='isVisible_kukuruza=false' v-on:click = "reduceFillingCounter_kukuruza">-</button></li>
+                </ul>
+            </div>
+            <div class="fillingsAdd">
+                <h3 class="fillingsTitle">Добавки</h3>
+                <ul class="addList">
+                    <li><span class="fillingsPrice">{{ priceAnanas }}р. </span>Ананас<span class="numbers">{{  fillingCounter_ananas }}</span><button class="fillingsButtons" @click='isVisible_ananas=true' v-on:click='riseFillingCounter_ananas'>+</button><button class="fillingsButtons" @click='isVisible_ananas=false' v-on:click = "reduceFillingCounter_ananas">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceCheese }}р. </span>Сыр<span class="numbers">{{  fillingCounter_cheese }}</span><button class="fillingsButtons" @click='isVisible_cheese=true' v-on:click='riseFillingCounter_cheese'>+</button><button class="fillingsButtons" @click='isVisible_cheese=false' v-on:click = "reduceFillingCounter_cheese">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceKrevetki }}р. </span>Креветки<span class="numbers">{{  fillingCounter_krevetki }}</span><button class="fillingsButtons" @click='isVisible_krevetki=true' v-on:click='riseFillingCounter_krevetki'>+</button><button class="fillingsButtons" @click='isVisible_krevetki=false' v-on:click = "reduceFillingCounter_krevetki">-</button></li>
+                    <li><span class="fillingsPrice">{{ pricePerez }}р. </span>Перец<span class="numbers">{{  fillingCounter_perez }}</span><button class="fillingsButtons" @click='isVisible_perez=true' v-on:click='riseFillingCounter_perez'>+</button><button class="fillingsButtons" @click='isVisible_perez=false' v-on:click = "reduceFillingCounter_perez">-</button></li>
+                    <li><span class="fillingsPrice">{{ priceRiba }}р. </span>Сёмга<span class="numbers">{{  fillingCounter_riba }}</span><button class="fillingsButtons" @click='isVisible_riba=true' v-on:click='riseFillingCounter_riba'>+</button><button class="fillingsButtons" @click='isVisible_riba=false' v-on:click = "reduceFillingCounter_riba">-</button></li>
+                </ul>
+            </div>
+        </div>
+            <div class="fillingsPrice__result"> Общая сумма {{ priceResult }} рублей</div>
+        </div>
+    </section>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
